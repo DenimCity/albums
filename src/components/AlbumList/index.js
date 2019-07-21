@@ -15,12 +15,12 @@ const AlbumList = () => {
       .catch(err => console.error(err.message));
   }, []);
 
-  const markup = (
+
+  return (
     <ScrollView>
       {rockets && rockets.map(album => <AlbumDetail key={album.title} album={album} />)}
     </ScrollView>
   );
-  return markup;
 };
 
 export default AlbumList;

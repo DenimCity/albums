@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const Button = () => {
   const { ButtonStyle, TextStyle } = styles;
@@ -12,7 +12,7 @@ const Button = () => {
 };
 
 
-const styles = {
+const styles = StyleSheet.create({
   ButtonStyle: {
     flex: 1,
     alignSelf: 'stretch',
@@ -31,6 +31,6 @@ const styles = {
     paddingTop: 10,
     paddingBottom: 10,
   },
-};
+});
 
 export default Button;

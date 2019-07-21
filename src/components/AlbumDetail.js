@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import {
-  Text, View, Image,
+  Text, View, Image, StyleSheet,
 } from 'react-native';
 
 import Card from './Card';
@@ -39,7 +39,7 @@ const AlbumDetail = ({ album }) => {
 };
 
 
-const styles = {
+const styles = StyleSheet.create({
   headerContentStyle: {
     flexDirection: 'column',
     justifyContent: 'space-around',
@@ -62,6 +62,6 @@ const styles = {
     flex: 1,
     width: null,
   },
-};
+});
 
 export default AlbumDetail;
