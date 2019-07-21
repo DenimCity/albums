@@ -20,8 +20,9 @@ const AlbumDetail = ({ album }) => {
 
       <Card>
         <CardSection>
-          <View style={thumbnailContainerStyle} />
-          <Image source={{ uri: thumbnail_image }} style={thumbnailStyle} />
+          <View style={thumbnailContainerStyle}>
+            <Image source={{ uri: thumbnail_image }} style={thumbnailStyle} />
+          </View>
           <View style={headerContentStyle}>
             <Text style={headerTextStyle}>{title}</Text>
             <Text>{artist}</Text>
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   headerTextStyle: {
-    fontSize: 22,
+    fontSize: 19,
   },
   thumbnailStyle: {
     height: 50,
