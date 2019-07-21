@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { View } from 'react-native';
 
-import Header from './src/components/Header';
-import AlbumList from './src/components/AlbumList';
+import { Header } from './components/common';
+import AlbumList from './components/views/AlbumList';
 
 
 const App = () => (

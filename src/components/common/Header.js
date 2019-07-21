@@ -3,7 +3,7 @@ import {
   Text, StyleSheet, View,
 } from 'react-native';
 
-const Header = ({ name }) => (
+export const Header = ({ name }) => (
 
   <Fragment>
     <View style={styles.viewStyle}>
@@ -33,4 +33,3 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 });
-export default Header;

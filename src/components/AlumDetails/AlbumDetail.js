@@ -3,9 +3,7 @@ import {
   Text, View, Image, StyleSheet, Linking,
 } from 'react-native';
 
-import Card from './Card';
-import CardSection from './CardSection';
-import Button from './Button';
+import { Button, Card, CardSection } from '../common';
 
 const AlbumDetail = ({ album }) => {
   const {

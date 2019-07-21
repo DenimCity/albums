@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ScrollView } from 'react-native';
 import axios from 'axios';
 
-import AlbumDetail from '../AlbumDetail';
+import AlbumDetail from '../AlumDetails/AlbumDetail';
 
 
 const AlbumList = () => {
