@@ -1,13 +1,14 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { View } from 'react-native';
-import firebase from 'firebase';
+import { firebase } from 'firebase';
 
 import { Header } from './components/common';
-import AlbumList from './components/views/AlbumList';
 import { firebaseConfig } from './config/secret';
+import LoginForm from './components/LoginForm/LoginForm';
 
 
 const App = () => {
+  const [loggedIn, setloggedIn] = useState();
   useEffect(() => () => {
     firebase.initializeApp(firebaseConfig);
   }, []);
@@ -15,8 +16,8 @@ const App = () => {
   return (
     <Fragment>
       <View style={{ flex: 1 }}>
-        <Header name="Albums" />
-        <AlbumList />
+        <Header name="Authentication" />
+        <LoginForm />
       </View>
     </Fragment>
   );

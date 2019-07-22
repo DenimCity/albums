@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     height: 60,
-    paddingTop: 15,
+    paddingTop: 30,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.4,
