@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "start": "react-native start",
+    "ios": "react-native run-ios",
     "test": "jest",
     "lint": "eslint ."
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "firebase": "^6.3.1",
     "react": "16.8.6",
     "react-native": "0.60.4"
   },
