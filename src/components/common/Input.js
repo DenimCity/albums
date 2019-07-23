@@ -1,10 +1,11 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 import React from 'react';
 import {
   Text, View, TextInput, StyleSheet,
 } from 'react-native';
 
 export const Input = ({
-  label, value, onChangeText, placeholder,
+  label, value, onChangeText, placeholder, secureTextEntry,
 }) => {
   const { inputStyle, labelStyle, containerStyle } = styles;
 
@@ -13,14 +14,13 @@ export const Input = ({
     <View style={containerStyle}>
       <Text style={labelStyle}>{label}</Text>
       <TextInput
-      //   secureTextEntry={placeholder === 'Password'}
-        keyboardType={placeholder === 'email-address'}
         placeholder={placeholder}
         style={inputStyle}
         value={value}
-        secureTextEntry={placeholder === 'Password'}
+        secureTextEntry={placeholder === 'Enter Password"'}
         autoCorrect={false}
         onChangeText={onChangeText}
+        secureTextEntry={secureTextEntry}
       />
     </View>
   );

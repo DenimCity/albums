@@ -7,8 +7,10 @@ import {
 
 
 const LoginForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [state, setState] = useState({
+    email: '',
+    password: '',
+  });
 
 
   return (
@@ -16,25 +18,24 @@ const LoginForm = () => {
       <CardSection>
         <Input
           label="Email"
-          onChangeText={text => setEmail(text)}
-          value={email}
+          onChangeText={email => setState({ ...state, email })}
+          value={state.email}
           placeholder="Enter Email"
         />
       </CardSection>
       <CardSection>
         <Input
           label="Password"
-          onChangeText={text => setPassword(text)}
-          value={password}
+          onChangeText={password => setState({ ...state, password })}
+          value={state.password}
           secureTextEntry
           password
-          placeholder="Enter Password"
         />
       </CardSection>
       <CardSection>
         <Button onPress={() => {
-          console.log('email', email);
-          console.log('password', password);
+          console.log('email', state.email);
+          console.log('password', state.password);
         }}
         >
                   Login

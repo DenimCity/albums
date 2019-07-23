@@ -3,9 +3,8 @@ import { View } from 'react-native';
 import { firebase } from 'firebase';
 
 import { Header } from './components/common';
-import { firebaseConfig } from './config/secret';
+import { firebaseConfig } from './config';
 import LoginForm from './components/LoginForm/LoginForm';
-
 
 const App = () => {
   const [loggedIn, setloggedIn] = useState();
