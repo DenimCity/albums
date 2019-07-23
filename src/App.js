@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { View } from 'react-native';
 import { firebase } from 'firebase';
 
@@ -7,7 +7,6 @@ import { firebaseConfig } from './config';
 import LoginForm from './components/LoginForm/LoginForm';
 
 const App = () => {
-  const [loggedIn, setloggedIn] = useState();
   useEffect(() => () => {
     firebase.initializeApp(firebaseConfig);
   }, []);
