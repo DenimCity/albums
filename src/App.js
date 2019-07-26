@@ -1,25 +1,18 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import { View } from 'react-native';
-import { firebase } from 'firebase';
+import firebase from 'firebase';
 
 import { Header } from './components/common';
-import { firebaseConfig } from './config';
 import LoginForm from './components/LoginForm/LoginForm';
 
-const App = () => {
-  useEffect(() => () => {
-    firebase.initializeApp(firebaseConfig);
-  }, []);
-
-  return (
-    <Fragment>
-      <View style={{ flex: 1 }}>
-        <Header name="Authentication" />
-        <LoginForm />
-      </View>
-    </Fragment>
-  );
-};
+const App = () => (
+  <Fragment>
+    <View style={{ flex: 1 }}>
+      <Header name="Authentication" />
+      <LoginForm firebase={firebase} />
+    </View>
+  </Fragment>
+);
 
 
 export default App;

@@ -1,18 +1,44 @@
-/* eslint-disable no-shadow */
-/* eslint-disable react/no-unused-state */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Text, StyleSheet } from 'react-native';
 import {
-  Card, CardSection, Button, Input,
+  Card, CardSection, Button, Input, Spinner,
 } from '../common';
+import { firebaseConfig } from '../../config';
 
 
-const LoginForm = () => {
+const LoginForm = ({ firebase }) => {
+  useEffect(() => () => {
+    firebase.initializeApp(firebaseConfig);
+  }, []);
+
   const [state, setState] = useState({
     email: '',
     password: '',
+    error: '',
+    loading: false,
   });
 
+  const loginSuccess = () => {
+    setState({
+      email: '', password: '', loading: false, error: '',
+    });
+  };
 
+  const onLoginFail = () => {
+    setState({ ...state, loading: false, error: 'Authentication Failed' });
+  };
+
+  const onButtonPress = async () => {
+    const { email, password } = state;
+    setState({ ...state, loading: true });
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(loginSuccess)
+      .catch(() => {
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+          .then(loginSuccess)
+          .catch(onLoginFail);
+      });
+  };
   return (
     <Card>
       <CardSection>
@@ -32,17 +58,28 @@ const LoginForm = () => {
           password
         />
       </CardSection>
+      <Text style={styles.errorTextStyle}>
+        {state.error.length > 1 }
+      </Text>
       <CardSection>
-        <Button onPress={() => {
-          console.log('email', state.email);
-          console.log('password', state.password);
-        }}
-        >
+        {
+          state.loading ? (
+            <Button onPress={onButtonPress}>
                   Login
-        </Button>
+            </Button>
+          ) : <Spinner size="small" />
+        }
       </CardSection>
     </Card>
   );
 };
+
+const styles = StyleSheet.create({
+  errorTextStyle: {
+    fontFamily: '20',
+    alignSelf: 'center',
+    color: 'red',
+  },
+});
 
 export default LoginForm;
