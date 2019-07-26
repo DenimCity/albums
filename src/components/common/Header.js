@@ -3,12 +3,12 @@ import {
   Text, StyleSheet, View,
 } from 'react-native';
 
-export const Header = ({ name }) => (
+export const Header = ({ headerText }) => (
 
   <Fragment>
     <View style={styles.viewStyle}>
       <Text style={styles.textStyle}>
-        {name}
+        {headerText}
       </Text>
     </View>
   </Fragment>
