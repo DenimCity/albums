@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Text, StyleSheet } from 'react-native';
 import {
   Card, CardSection, Button, Input, Spinner,
 } from '../common';
-import { firebaseConfig } from '../../config';
 
 
 const LoginForm = ({ firebase }) => {
-  useEffect(() => () => {
-    firebase.initializeApp(firebaseConfig);
-  }, []);
-
   const [state, setState] = useState({
     email: '',
     password: '',
