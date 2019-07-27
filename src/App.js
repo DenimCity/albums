@@ -1,16 +1,14 @@
 import React, { Fragment } from 'react';
 import { View } from 'react-native';
 import { Provider } from 'react-redux';
-// import store from './redux/store';
-import { createStore } from 'redux';
-import reducers from './redux/reducers';
 import { Header } from './components/common';
 import LibraryList from './components/LibraryList/LibraryList';
+import store from './redux/store';
 
 
 const App = () => (
   <Fragment>
-    <Provider store={createStore(reducers)}>
+    <Provider store={store}>
       <Header headerText="Tech Stack" />
       <View style={{ flex: 1 }}>
         <LibraryList />

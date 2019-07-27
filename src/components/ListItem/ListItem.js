@@ -16,6 +16,7 @@ const ListItem = (props) => {
 
   useEffect(() => {
   }, [LayoutAnimation.spring()]);
+
   return (
     <TouchableWithoutFeedback onPress={() => props.selectLibrary(id)}>
       <View>
@@ -31,6 +32,8 @@ const ListItem = (props) => {
     </TouchableWithoutFeedback>
   );
 };
+
+
 const styles = StyleSheet.create({
   titleStyle: {
     fontSize: 13,
