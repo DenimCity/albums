@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Text, StyleSheet, TouchableWithoutFeedback, View,
+  LayoutAnimation,
 } from 'react-native';
 import { connect } from 'react-redux';
 
@@ -10,24 +11,22 @@ import * as actions from '../../redux/actions';
 
 const ListItem = (props) => {
   const { title, id, description } = props.library.item;
-  const { selectedLibraryId } = props;
-  const { titleStyle } = styles;
-  //   console.log(description);
-  console.log(selectedLibraryId);
+  const { expanded } = props;
+  const { titleStyle, textStyle } = styles;
 
-  function renderDescription() {
-    if (id === selectedLibraryId) {
-      return (<Text>{description}</Text>);
-    }
-  }
-
+  useEffect(() => {
+  }, [LayoutAnimation.spring()]);
   return (
     <TouchableWithoutFeedback onPress={() => props.selectLibrary(id)}>
       <View>
         <CardSection>
           <Text style={titleStyle}>{title}</Text>
         </CardSection>
-        {renderDescription()}
+        {expanded && (
+        <CardSection>
+          <Text style={textStyle}>{description}</Text>
+        </CardSection>
+        )}
       </View>
     </TouchableWithoutFeedback>
   );
@@ -38,11 +37,14 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
 
   },
+  textStyle: {
+    flex: 1,
+  },
 });
 
-const mapStateProps = state => ({
-  selectedLibraryId: state.selectedLibraryId.selectedId,
-});
+const mapStateProps = (state, ownProps) => {
+  return { expanded: state.selectedLibraryId.selectedId === ownProps.library.item.id };
+};
 
 
 export default connect(mapStateProps, actions)(ListItem);
