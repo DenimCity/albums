@@ -11,8 +11,8 @@ import LibraryList from './components/LibraryList/LibraryList';
 const App = () => (
   <Fragment>
     <Provider store={createStore(reducers)}>
-      <View>
-        <Header headerText="Tech Stack" />
+      <Header headerText="Tech Stack" />
+      <View style={{ flex: 1 }}>
         <LibraryList />
       </View>
     </Provider>

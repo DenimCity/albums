@@ -7,12 +7,6 @@ const INITIAL_STATE = {
 
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
-    case 'GET_LIBRARIES': {
-      return {
-        ...state,
-        libraries: state.libraries,
-      };
-    }
     default:
       return state;
   }
