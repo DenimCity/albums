@@ -1,4 +1,4 @@
-import libraryList from './librarylist';
+import libraryList from './librarylist.json';
 
 const INITIAL_STATE = {
   libraries: libraryList,
@@ -7,10 +7,10 @@ const INITIAL_STATE = {
 
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
-    case 'GET_LAUNCHES': {
+    case 'GET_LIBRARIES': {
       return {
-      //   ...state,
-      //   launches: action.payload,
+        ...state,
+        libraries: state.libraries,
       };
     }
     default:
